@@ -9,20 +9,20 @@ namespace La_Mia_Pizzeria_1.Controllers
 
         public IActionResult Index()
         {
-            List<Pizza> listaDellePizza = PizzaData.GetPizzas();
+            List<Models.Pizza> listaDellePizza = PizzaData.GetPizzas();
 
             return View("Index", listaDellePizza);
         }
 
         public IActionResult Details(int id)
         {
-            List<Pizza> listaDellePizza = PizzaData.GetPizzas();
+            List<Models.Pizza> listaDellePizza = PizzaData.GetPizzas();
 
-            foreach (Pizza pizza in listaDellePizza)
+            foreach (Models.Pizza pizza in listaDellePizza)
             {
                 if (pizza.Id == id)
                 {
-                    return View(pizza);
+                    return base.View(pizza);
                 }
             }
 
